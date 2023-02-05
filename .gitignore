@@ -1,0 +1,5 @@
+env
+ektaapp/__pycache__
+ektaapp/migrations
+ektaproject/migrations
+ektaproject/__pycache__

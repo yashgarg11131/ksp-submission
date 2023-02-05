@@ -1,0 +1,476 @@
+{% block sidebar %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" type="application/javascript" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+        <link rel="stylesheet" type="application/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <!--Icon Link-->
+        <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+        <!--=============-->
+        <link rel="stylesheet" href="https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <!-- CDN for toast message -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+        <!-- CDN for toast message -->
+
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/loader.css' %}">
+    </head>
+   
+    <body>
+
+      {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == "alert-success" %}
+            <p id ="idd1" hidden>{{ message }} </p>
+            {% elif message.tags == "alert-danger" %}
+            <p id ="idd2" hidden>{{ message }} </p>
+            {% elif message.tags == "alert-warning" %}
+            <p id ="idd3" hidden>{{ message }} </p>
+            {% elif message.tags == "alert-info" %}
+            <p id ="idd4" hidden>{{ message }} </p>
+           {% endif %}
+        {% endfor %}
+      {% endif %}
+        <style>
+         #div{
+          font-size: 0.7rem;
+         }
+
+    
+            .material-symbols-outlined {
+              font-variation-settings:
+              'FILL' 0,
+              'wght' 400,
+              'GRAD' 0,
+              'opsz' 48
+            }
+           
+
+          @media screen and (min-width: 768px)
+          .show {
+              width: calc(var(--nav-width) + 184px);
+          } 
+          @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");:root{--header-height: 3rem;--nav-width: 68px;--first-color: #204661;--first-color-light: #AFA5D9;--white-color: #F7F6FB;--body-font: 'Nunito', sans-serif;--normal-font-size: 1rem;--z-fixed: 100}*,::before,::after{box-sizing: border-box}body{position: relative;margin: var(--header-height) 0 0 0;padding: 0 1rem;font-family: var(--body-font);font-size: var(--normal-font-size);transition: .5s}a{text-decoration: none}.header{width: 100%; height: var(--header-height);position: fixed;top: 0;left: 0;display: flex;align-items: center;padding: 0 1rem;background-color: var(--white-color);z-index: var(--z-fixed);transition: .5s}.header_toggle{color: #8cdeea;font-size: 1.5rem;cursor: pointer}.header_img{width: 35px;height: 35px;display: flex;justify-content: center;border-radius: 50%;overflow: hidden}.header_img img{width: 40px}.l-navbar{position: fixed;top: 0;left: -30%;width: var(--nav-width);height: 100vh;background-color: # ;box-shadow:rgb(37,90,129) 10px 30px 60px 12px inset, rgb(37,90,129, 0.3) 10px 18px 36px 18px inset;padding: .5rem 1rem 0 0;transition: .5s;z-index: var(--z-fixed)}.nav{height: 100%;display: flex;flex-direction: column;justify-content: space-between;overflow: hidden}.nav_logo, .nav_link{display: grid;grid-template-columns: max-content max-content;align-items: center;column-gap: 1rem;padding: .5rem 0 .5rem 1.5rem}.nav_logo{margin-bottom: 2rem}.nav_logo-icon{font-size: 1.25rem;color: var(--white-color)}.nav_logo-name{color: var(--white-color);font-weight: 700}.nav_link{position: relative;color: var(--first-color-light);margin-bottom: 1.5rem;transition: .3s}.nav_link:hover{color: var(--white-color)}.nav_icon{font-size: 1.25rem}.show{left: 0}.body-pd{padding-left: calc(var(--nav-width) + 1rem)}.active{color: var(--white-color)}.active::before{content: '';position: absolute;left: 0;width: 2px;height: 32px;background-color: var(--white-color)}.height-100{height:100vh}@media screen and (min-width: 768px){body{margin: calc(var(--header-height) + 1rem) 0 0 0;padding-left: calc(var(--nav-width) + 2rem)}.header{height: calc(var(--header-height) + 1rem);padding: 0 2rem 0 calc(var(--nav-width) + 2rem)}.header_img{width: 40px;height: 40px}.header_img img{width: 45px}.l-navbar{left: 0;padding: 1rem 1rem 0 0}.show{width: calc(var(--nav-width) + 200px)}.body-pd{padding-left: calc(var(--nav-width) + 188px)}}
+          body{
+            background-color: #1e2833;
+          }
+          #header{
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            background-color: #161e25;
+          }
+
+        </style>
+        <body id="body-pd">
+
+            <header class="header" id="header">
+              <i class='bx bx-menu header_toggle' id="header-toggle" style="margin-left: 1rem;"></i> 
+            
+                {% block header %}
+                {% endblock %}
+
+            </header>
+
+            <div class="l-navbar" id="nav-bar">
+                <nav class="nav">
+                    <div> 
+                        <a href="#" class="nav_logo"> 
+                          <i class='bx'><span class="material-symbols-outlined">
+                            emoji_objects
+                            </span></i> 
+                          <span class="nav_logo-name">EKTA</span> 
+                        </a>
+
+
+
+                        <div class="nav_list"> 
+                            <!-- <a href="" class="nav_link"> 
+                              <i class='bx'><span class="material-symbols-outlined">
+                                dashboard_customize
+                                </span></i> 
+                              <span class="nav_name">Dashboard</span> 
+                            </a> -->
+
+                            <a href="{% url 'home' %}" class="nav_link"> 
+                              <i class='bx'><span class="material-symbols-outlined">
+                                boy
+                                </span></i> 
+                              <span class="nav_name">Station Management</span> 
+                            </a> 
+
+                            <a href="{% url 'image-search' %}" class="nav_link"> 
+                              <i class='bx'><span class="material-symbols-outlined">
+                                image
+                                </span></i> 
+                              <span class="nav_name">Image Search</span> 
+                            </a> 
+
+                            <a href="" class="nav_link"> 
+                              <i class="bx"><span class="material-symbols-outlined">account_circle</span></i> 
+                              <span class="nav_name">My Account</span> 
+                            </a> 
+                      </div>
+
+
+
+                     
+                  </div>
+                  <a href="#popup1" class="nav_link"> <i id="btn1" class='bx bx-log-out nav_icon'> <span class="nav_name" style="font-size:18px">SignOut</span></i></a>
+
+                </nav>
+            </div>
+
+            <script>
+        
+              $(function(){
+                $('#btn1').on('click', function(e){
+               Swal.fire({
+                //title: 'Do you want Loogout?',
+              
+                title : "Logout",
+                text : " Do you want to Logout？",
+
+                showCancelButton: true,
+                confirmButtonText: 'Logout',
+                cancelButtonText : "Cancel",
+                // confirmButtonColor : "red",
+                //cancelButtonColor : "blue",
+                
+              }).then((result) => {
+                if (result.isConfirmed) {
+                      const hitURL = "";
+                      window.location.href = hitURL;
+                } 
+              })
+            });
+          });
+            </script>
+            <!-- Popup code -->  
+             
+
+            <!--Container Main start-->
+              {% block content %}  
+              
+              {% endblock content %}
+            </div>
+            <!--Container Main end-->
+           
+            <div class="text-center p-4 mt-3">
+          </div>
+     
+    </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+   
+            const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+            const toggle = document.getElementById(toggleId),
+            nav = document.getElementById(navId),
+            bodypd = document.getElementById(bodyId),
+            headerpd = document.getElementById(headerId)
+            
+            // Validate that all variables exist
+            if(toggle && nav && bodypd && headerpd){
+            toggle.addEventListener('click', ()=>{
+            // show navbar
+            nav.classList.toggle('show')
+            // change icon
+            toggle.classList.toggle('bx-x')
+            // add padding to body
+            bodypd.classList.toggle('body-pd')
+            // add padding to header
+            headerpd.classList.toggle('body-pd')
+            })
+            }
+            }
+            
+            showNavbar('header-toggle','nav-bar','body-pd','header')
+            
+            /*===== LINK ACTIVE =====*/
+            const linkColor = document.querySelectorAll('.nav_link')
+            
+            function colorLink(){
+            if(linkColor){
+            linkColor.forEach(l=> l.classList.remove('active'))
+            this.classList.add('active')
+            }
+            }
+            linkColor.forEach(l=> l.addEventListener('click', colorLink))
+            
+             // Your code to run since DOM is loaded and ready
+            });
+
+
+            $("button, #bulb, a, :checkbox").hover(function(){
+              $("#bulb").css({
+                "background-color": "white",
+                "box-shadow": "0px 0px 25px 25px rgba(255, 255, 255, .4)",
+                "z-index": "10000"
+              });
+            }, function(){
+              $("#bulb").css({
+                "width": "50px",
+                "height": "50px",
+                "border-radius": "100%",
+                "position": "absolute",
+                "top": "118%",
+                "left": "-24px",
+                "box-shadow": "inset 2px 2px 9px rgba(255, 255, 255, .2), inset -2px -2px 9px rgba(255, 255, 255, .2)",
+                "-webkit-transition": "all .1s ease-in",
+                "background-color": ""
+              });
+            });
+
+
+            // from to date validation..
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+            var yyyy = today.getFullYear();
+            if(dd<10){
+              dd='0'+dd
+            } 
+            if(mm<10){
+              mm='0'+mm
+            } 
+            today = yyyy+'-'+mm+'-'+dd;
+            $(".start_qf").click(function(){
+              $(".start_qf").attr("max",today)
+            })
+            $(".start_qf").change(function(){
+              let min = $(".start_qf").val()
+              $(".end_qf").val("");
+              $(".end_qf").attr("min",min)
+              $(".end_qf").attr("max",today)
+            })
+            $(".end_qf").click(function(){
+              $(".end_qf").attr("max",today)
+            })
+    </script>
+
+     <!--  toast messages js code  -->
+     <script>        
+      var toastMixin = Swal.mixin({
+          toast: true,
+          title: 'General Title',
+          animation: false,
+          position: 'top-right',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        });
+        var x = $('#idd1').text();
+        if (x !== "" ){
+            toastMixin.fire({
+            animation: true,
+            title: x,
+            icon: 'success',
+          });
+        }
+        var x = $('#idd2').text();
+        if (x !== "" ){
+            toastMixin.fire({
+            animation: true,
+            title: x,
+            icon: 'error',
+          });
+        }
+  
+        var x = $('#idd3').text();
+        if (x !== "" ){
+            toastMixin.fire({
+            animation: true,
+            title: x,
+            icon: 'warning',
+          });
+        }
+  
+        var x = $('#idd4').text();
+        if (x !== "" ){
+            toastMixin.fire({
+            animation: true,
+            title: x,
+            icon: 'info',
+          });
+        }
+
+  </script>
+<!--  toast messages js code  -->
+
+<style>
+  #fotter {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+
+
+
+
+
+
+
+input[type="range"] {
+	position: relative;
+	display: inline-block;
+	width: auto;
+
+	
+	// 	chrome specific
+	background: transparent;
+	
+	// 	firefox specific
+	width: 300px;
+	
+	&:focus {
+		outline: none;
+	}
+	
+	
+	// track
+	// ==================
+	&::-webkit-slider-runnable-track {
+		//	must specify without comma separator
+	}
+	
+	&::-moz-range-track {
+		//	must specify without comma separator
+	}
+	
+	&::-ms-track {
+		width: 300px;
+		background: transparent; 
+		border-color: transparent;
+		color: transparent;
+	}
+	
+	// thumb
+	// ==================
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		margin-top: -8px;
+		// margin-top is not set to auto like Firefox and MS
+	}
+	
+	&::-moz-range-thumb {
+		// styling is entirely up to you
+	}
+	
+	&::-ms-thumb {
+		// styling is entirely up to you
+	}
+}
+
+
+
+
+// =====================
+// 	The Styling
+// =====================
+input[type="range"] {
+
+	// track
+	// ==================
+	&::-webkit-slider-runnable-track {
+		background: $orange;
+		border: 1px solid $white;
+		border-radius: 15px;
+		height: 30px;
+	}
+	
+	&::-moz-range-track {
+		background: $orange;
+		border: 1px solid $white;
+		border-radius: 15px;
+		height: 30px;
+	}
+	
+	// thumb
+	// ==================
+	&::-webkit-slider-thumb {
+		position: relative;
+		width: 8px;
+		height: calc(100% + 16px);
+		background: $white;
+		border: 1px solid $white;
+		border-radius: 4px;
+		transition: background 0.2s;
+	}
+	
+	&::-moz-range-thumb {
+		position: relative;
+		width: 8px;
+		height: calc(100% + 16px);
+		background: $white;
+		border: 1px solid $white;
+		border-radius: 4px;
+		transition: background 0.2s;
+	}
+	
+	&::-ms-thumb {
+		position: relative;
+		width: 8px;
+		height: calc(100% + 16px);
+		background: $white;
+		border: 1px solid $white;
+		border-radius: 4px;
+		transition: background 0.2s;
+	}
+	
+	&:active {
+		&::-webkit-slider-thumb {
+			background: $blue;
+		}
+		
+		&::-moz-range-thumb {
+			background: $blue;
+		}
+		
+		&::-ms-thumb {
+			background: $blue;
+		}
+	}
+}
+
+
+{% comment %} end range {% endcomment %}
+</style>
+
+
+
+
+
+
+</html>
+
+{% endblock sidebar %}
